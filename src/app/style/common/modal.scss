@@ -1,0 +1,99 @@
+@import 'common/colors';
+@import 'setup';
+
+.modal-confirmation{
+  height: auto;
+  text-align: center;
+  min-width: 100%;
+
+  .modal-additional-info{
+    margin: 25px;
+  }
+
+  h3{
+    margin: 5px;
+  }
+
+  textarea {
+      font-family: $systemfont;
+      padding: 10px;
+      background-color: $lightLight;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      resize: none;
+      margin: 10px;
+      width: 50%;
+      text-indent: 0;
+
+      &:focus{
+        outline-color: #d4d4d4;
+      }
+
+      &:read-only{
+        &:focus{
+          outline: none;
+        }
+      }
+
+      &:disabled{
+        outline-color: none;
+        cursor: default;
+        user-select: none !important;
+      }
+  }
+
+  &.error {
+    h1 {
+      color: $red;
+    }
+  }
+
+  .modal-confirmation-buttons {
+    justify-content: center;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    margin: 20px 0;
+
+    .modal-confirm-cancel-button{
+      background: $red;
+    }
+    .modal-confirm-cancel-button:hover{
+      background: $red-shadow;
+    }
+    
+    .modal-confirm-cancel-button:disabled {
+      background: $light;
+      color: $white;
+    }
+
+  }
+}
+
+@media #{$mobileScreenSize} {
+  .modal-confirmation{
+
+    h2{
+      font-size: 18px;
+    }
+
+    p{
+      font-size: 14px;
+    }
+
+    textarea{
+      font-size: 0.8rem;
+    }
+
+    h1{
+      font-size: 30px;
+    }
+
+    .modal-confirmation-buttons {
+      font-size: 12px;
+    }
+
+  }
+
+}

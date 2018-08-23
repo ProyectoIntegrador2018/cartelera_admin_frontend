@@ -1,0 +1,54 @@
+@import 'common/colors';
+
+.container-column-menu {
+    grid-template-columns: 15% auto;
+    align-items: center;
+    grid-gap: 2rem;
+}
+
+.container-menu-elements {
+    grid-column: 1;
+    border-right: solid 0.2rem $light;
+    height: 80%;
+    text-align: right;
+    padding-right: 2rem;
+}
+
+.container-menu-content {
+    grid-column: 2;
+    height: 80%;
+}
+
+.menu-link {
+    height: auto;
+    margin-bottom: 2rem;
+
+    &>a {
+        color: $black;
+        font-weight: 500;
+
+        &:link {
+            color: $black;
+            text-decoration: none;
+        }
+
+        &:visited {
+            color: $black;
+            text-decoration: none;
+        }
+
+        &:hover {
+            color: $light-blue;
+        }
+
+        &:active {
+            color: $light-blue;
+        }
+    }
+}
+
+.menu-link-selected {
+    border-color: $light-blue;
+    color: $light-blue;
+    border-bottom: 4px solid;
+}

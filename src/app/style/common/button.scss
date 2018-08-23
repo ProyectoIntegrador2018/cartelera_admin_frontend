@@ -1,0 +1,218 @@
+@import 'colors';
+@import '../setup';
+
+button:disabled {
+    opacity: 0.3 !important;
+    color: $white !important;
+    &:hover {
+        cursor: default;
+    }
+    svg {
+        color: $white;
+        stroke: $white;
+    }
+}
+
+.tooltip-div{
+    width: 100%;
+}
+
+button {
+    border: none;
+    border-radius: 30px;
+    color: $white;
+    overflow: hidden;
+    outline: none;
+    position: relative;
+    letter-spacing: 0.1em;
+    font-weight: 400;
+    padding: 1rem 2rem;
+    font-size: 1em;
+    svg {
+        color: $white;
+        stroke: $white;
+    }
+    a {
+        text-decoration: none;
+    }
+
+    &.lg{
+        width: 100%;
+    }
+    &.primary {
+        background: $light-blue;
+    }
+    &.danger {
+        background: $red;
+    }
+    &.dark {
+        background: $black;
+    }
+    &.secondary {
+        color: $light-grey;
+        background: transparent;
+        svg {
+            color: $light-grey;
+        }
+    }
+    &.hide {
+        display: none;
+    }
+    &.icon-button{
+        padding: 10px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 3px solid transparent;
+    }
+}
+
+@mixin button-style($color) {
+    &:hover {
+        color: $color;
+
+        &.icon-button{
+            border-color: $color;
+        }
+        svg {
+            color: $color;
+            stroke: $color;
+        }
+    }
+    &:after {
+        background: $color;
+    }
+}
+
+@mixin button-style-inverse($color) {
+    &:hover {
+        color: $color;
+        background: transparent;
+        svg {
+            color: $color;
+        }
+    }
+    &:after {
+        background: $color;
+    }
+}
+
+.static {
+    .icon-button {
+        height: 30px;
+        width: 30px;
+        margin: 20px;
+        background-color: $light;
+    }
+    button:enabled {
+        cursor: pointer;
+    }
+}
+
+.btn {
+
+    &.right {
+        text-align: right;
+    }
+    button:enabled {
+        cursor: pointer;
+        -webkit-transition: all 1s ease;
+        transition: all 1s ease;
+        
+        &.primary {
+            @include button-style($light-blue);
+        }
+        &.dark {
+            @include button-style($black);
+        }
+        &.danger {
+            @include button-style($red);
+        }
+        &.secondary {
+            @include button-style-inverse($light-grey);
+        }
+
+        &.icon-button{
+            @media #{$desktopScreenSize} {
+                &:hover {
+                    -webkit-transition: all .7s ease;
+                    transition: all 1s ease;
+                    background: transparent;
+                    border-radius: 0;
+                    transition: border-color .6s ease;
+                    transition: background .6s ease;
+                    //position: inherit;
+                    border-radius: 50%;
+        
+                    &:after {
+                        width: 100%;
+                        left: 0;
+                        background: transparent;
+                        transition: border-color .6s ease;
+                        transition: background .6s ease;
+                        //position: inherit;
+                        border: 3px solid transparent;
+                        height: 0px;
+                        background: transparent;
+
+                    }
+                }
+        }
+
+            &:after {
+                position: absolute;
+                transition: all 0s ease;
+                content: '';
+                width: 0;
+                bottom: 0;
+                left: inherit;
+                right: 0;
+                height: 3px;
+                transition: all .6s ease;
+                //position: inherit;
+                height: 0px;
+                background: transparent;   
+            }
+        }
+
+        @media #{$desktopScreenSize} {
+            &:hover {
+                -webkit-transition: all .7s ease;
+                transition: all 1s ease;
+                background: transparent;
+                border-radius: 0;
+
+                &:after {
+                    transition: all .2s ease;
+                    width: 100%;
+                    left: 0;
+                }
+            }
+        }
+
+        &:after {
+            position: absolute;
+            transition: all 0s ease;
+            content: '';
+            width: 0;
+            bottom: 0;
+            left: inherit;
+            right: 0;
+            height: 3px;
+        }
+    }
+}
+
+@media #{$mobileScreenSize} {
+    button {
+        &.icon-button{
+            width: 45px;
+            height: 45px;
+        }
+    }
+
+}

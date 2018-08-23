@@ -1,0 +1,35 @@
+@import 'colors';
+@import '../setup';
+
+.navbar-button {
+    border-radius: 7px;
+    color: $light;
+    display: flex;
+    font-family: "Barlow", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px 15px;
+    text-align: right;
+    text-decoration: none;
+    .sb-avatar > div {
+        filter: grayscale(100%);
+        -webkit-transition : -webkit-filter 300ms linear;
+    }
+    &:hover {
+        background-color: $lightLight;
+    }
+    &.selected {
+        color: $black;
+        background-color: $lightLight;
+        .sb-avatar > div {
+            filter: grayscale(0);
+        }
+    }
+}
+
+@media #{$mobileScreenSize} {
+    .navbar-button{
+        font-size: 14px;
+        padding: 7px;
+    }
+}

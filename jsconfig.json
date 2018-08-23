@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "Style/*": [
+        "src/app/style/*"
+      ],
+      "Config/*": [
+        "./src/app/config/*"
+      ],
+      "Helpers/*": [
+        "./src/app/helpers/*"
+      ],
+      "Logic/*": [
+        "./src/app/logic/*"
+      ],
+      "Containers/*": [
+        "./src/app/components/containers/*"
+      ],
+      "Presentational/*": [
+        "./src/app/components/presentational/*"
+      ],
+      "Images/*": [
+        "./src/app/images/*"
+      ]
+    },
+    "target": "ES6",
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

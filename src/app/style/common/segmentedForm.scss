@@ -1,0 +1,104 @@
+@import 'pills';
+@import '../setup';
+
+.edit-event-container, .profile-container {
+    display: flex;
+
+    .navbar {
+        align-items: flex-end;
+        display: flex;
+        flex-flow: column;
+
+        .navbar-button {
+            margin: 10px;
+            float: left;
+
+            &.callout{
+                position: relative;
+                padding: 10px 30px;
+            }
+
+            &.selected {
+                color: $black;
+                background-color: $lightLight;
+                .sb-avatar > div {
+                    filter: grayscale(0);
+                }
+  
+                &.callout::before {
+                    content: "";
+                    width: 0px;
+                    height: 0px;
+                    border: 0.8em solid transparent;
+                    position: absolute;
+                }
+                
+                &.callout.right::before {
+                    right: -25px;
+                    top: 18%;
+                    border-left: 17px solid $lightLight;
+                }
+            }
+        }
+    }
+
+    .edit-event-content, .profile-content {
+        width: 100%;
+        padding: 0px 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        flex-wrap: wrap;
+
+        form{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+    }
+}
+
+@media #{$mobileScreenSize} {
+
+    .edit-event-container, .profile-container {
+        flex-wrap: wrap;
+
+        .edit-event-content, .profile-content {
+            padding: 0px 0px;
+        }
+
+        .input-container{
+            margin-top: 0px;
+        
+            &.sm{
+              margin-right: 0px;
+              width: 100%;
+            }
+        }
+
+        .navbar {
+            flex-flow: wrap;
+            justify-content: center;
+            margin: 10px 0px;
+    
+            .navbar-button {
+                margin: 5px;
+                font-size: 12px;
+
+                &.callout{
+                    position: relative;
+                    padding: 6px 10px;
+                }
+
+                &.selected {
+                    &.callout.right::before {
+                        border-left: 0px solid $lightLight;
+                    }
+                }
+
+            }
+        }
+    }
+
+}
+

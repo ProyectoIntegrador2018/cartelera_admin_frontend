@@ -1,0 +1,27 @@
+.container-login {
+    display: flex;
+    flex-flow: row wrap;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.login-logo {
+    width: 100%;
+    display: flex;
+    justify-content:flex-end;
+    align-items:center;
+    min-width: 350px;
+    max-width: 450px;
+    margin: 30px;
+}
+
+.login-form {
+    width: 100%;
+    display: flex;
+    align-content: center;
+    min-width: 350px;
+    max-width: 450px;
+    margin: 30px;
+}

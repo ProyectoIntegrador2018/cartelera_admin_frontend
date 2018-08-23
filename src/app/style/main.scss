@@ -1,0 +1,554 @@
+@import 'common/button';
+@import 'common/colors';
+@import 'common/header';
+@import 'common/modal';
+@import 'common/select';
+@import 'common/spinner';
+@import 'common/switch';
+@import 'setup';
+@import url('https://fonts.googleapis.com/css?family=Barlow:100,200,300,400,500,600,700,800,900&subset=latin-ext');
+
+html {
+  font-family: $systemfont;
+}
+
+.react-confirm-alert{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+// Inputs
+.form-field > input, select, .password-form-field > input {
+  font-size: 16px;
+  background: $white;
+  border: 1px solid $light;
+  height: 35px;
+  width: 99%;
+  text-overflow: ellipsis;
+  
+}
+
+textarea {
+  resize: none;
+  font-size: 16px;
+  background: $white;
+  border: 1px solid $light;
+  width: 99%;
+  text-indent: 10px;
+  line-height: 1.5rem;
+}
+
+.password-form-field {
+  display: flex;
+  position: relative;
+}
+
+button:focus {
+  outline: 0;
+}
+
+.emptyField {
+    border: 1px solid $red;
+}
+
+.readyField {
+  border: 1px solid #cacacc;
+}
+
+.form-field.buttons {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 25px 0px 0px 0px;
+  padding: 25px 0px 0px 0px;
+}
+
+.sub-form.buttons {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 5px 0px;
+}
+
+// Different kinds of input
+input::-webkit-input-placeholder { 
+  line-height: 1.5em;
+}
+input:-moz-placeholder { 
+  line-height: 1.5em;
+}
+input::-moz-placeholder { 
+  line-height: 1.5em;
+}
+input:-ms-input-placeholder { 
+  line-height: 1.5em;
+}
+
+p {
+  //color: $darkBlue;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 46px;
+  color: $black;
+  grid-row: 1;
+  margin-bottom: 2px;
+  transition: all 0.5s ease;
+
+  @media #{$mobileScreenSize} {
+    font-size: 36px;
+  }
+
+  @media #{$desktopScreenSize} {
+    font-size: 46px;
+  }
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 30px;
+  color: $black;
+  grid-row: 1;
+  margin-bottom: 2px;
+
+  @media #{$mobileScreenSize} {
+    font-size: 22px;
+  }
+
+  @media #{$desktopScreenSize} {
+    font-size: 30px;
+  }
+}
+
+h3 {
+  font-weight: 400;
+  color: $light;
+  text-align: center;
+  font-style: italic;
+
+  @media #{$mobileScreenSize} {
+    font-size: 18px;
+  }
+
+  @media #{$desktopScreenSize} {
+    font-size: 24px;
+  }
+}
+
+// CSS Grid
+.grid-container {
+  display: grid;
+  height: auto;
+}
+
+// Messages
+.message-error {
+  width: 100%;
+  margin: 0px 10px 10px 0px;
+  font-weight: 550;
+  color: $red;
+  height: 20px;
+  font-size: 13px;
+}
+
+.generic-warning{
+  grid-column-start: 1;
+  grid-column-end: end;
+}
+
+.message-toggle-info {
+  width: auto;
+  margin: 0px 10px;
+  color: $light;
+  height: 20px;
+  font-size: 13px;
+
+  &.sm{
+    width: 100%;
+    margin: 10px;
+    margin-top: 0px;
+  }
+}
+
+// Buttons
+
+.forgot-password{
+  padding: 5px;
+  margin: 10px;
+  color: $light;
+  font-size: 12px;
+  
+  &:hover{
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+.button-submit {
+  margin-top: 5px;
+  font-size: 16px;
+  min-width: 150px;
+  background: $light-blue;
+  color: $white;
+  border-radius: 7px;
+  height: 35px;
+  float: right;
+  border: 0;
+}
+.button-submit:hover {
+  background: $light-blue-shadow;
+
+}
+.button-submit:disabled {
+  background: $light;
+  color: $white;
+}
+
+.button-newbie-logout {
+  font-size: 13px;
+  width: auto;
+  background: transparent;
+  color: $black;
+  border-radius: 7px;
+  text-align: left;
+  text-decoration: underline;
+  height: 20px;
+  margin-top: 20px;  
+  border: 0;
+}
+
+.button-unpublish {
+  margin-top: 5px;
+  font-size: 14px;
+  min-width: 100px;
+  max-width: 100px;
+  background: $darkBlue;
+  color: $white;
+  border-radius: 7px;
+  height: 35px;
+  float: right;
+  border: 0;
+  justify-content: center;
+}
+
+#newbie-logout {
+  color: red;
+}
+
+.passwordToggle{
+  color:$black;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 1em;
+  height: auto;
+  width: auto;
+  position: absolute;
+  top: 15%;
+  right: 2%;
+}
+
+.spinner {
+  top: 0;
+  left: 0;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  div.sk-fade-in {
+    height: auto;
+  }
+}
+.modifyButtons{
+  display: flex;
+  height: auto;
+  vertical-align: middle;
+  width: 300px;
+  margin-top: 12px;
+
+  span{
+    align-self: center;
+    margin: 0px;
+    &.label {
+      align-self: flex-start;
+      margin: 4px;
+    }
+  }
+}
+
+.helpIcon{
+  margin-left: 5px;
+  color: $light;
+}
+
+.date-container{
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  .date-picker {
+    width: 350px;
+    margin-right: 50px;
+  }
+}
+
+.react-datepicker{
+  button{
+    height: 0 !important;
+  }
+}
+
+.input-container{
+  margin-bottom: 0px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: left;
+  max-width: 100%;
+  min-height: 100px;
+  justify-content: center;
+
+  &.sm{
+    margin-right: 50px;
+    width: 350px;
+  }
+  
+  .separator {
+    height:3px;
+    width: 100%;
+    background: $light-blue;
+    display: block;
+    transform: scaleX(0) translateY(-2px);
+    transform-origin: 50%;
+    opacity: 0;
+    transition: all .25s linear;
+  }
+
+  .separator-warning {
+    height:3px;
+    width: 100%;
+    background: $red;
+    display: block;
+    transform: scaleX(0) translateY(-2px);
+    transform-origin: 50%;
+    opacity: 0;
+    transition: all .25s linear;
+  }
+  
+  
+  :focus {
+    outline-color: transparent;
+    outline-style: none;
+  }
+
+  label{
+    display: block;
+    text-align: left;
+    color: $black;
+    font-size: .875em;
+    border: none;
+  }
+  
+   .text-input{
+     margin-bottom: .875em;
+     width: 100%;
+     overflow: auto;
+
+     &.toggle{
+       display: flex;
+       flex-direction: row;
+       justify-content: flex-start;
+       align-items: center;
+       margin-bottom: 8px;
+     }
+
+     .tag-container{
+       margin-top: 12px;
+
+       li{
+          background: $lightLight;
+          font-size: 1rem;
+          font-family: inherit;
+          letter-spacing: 0.7px;
+       }
+
+       input{
+         width: -webkit-fill-available;
+         border-radius: 0px;
+         background: $lightLight;
+         color: $black;
+         border-radius: 15px;
+         border: none;
+         padding: 6px 15px;
+         margin: 15px 0px 0px 0px;
+
+         &:focus{
+            border: none;
+         }
+       }
+     }
+   }
+
+   div.textarea{
+      line-height: 30px;
+   }
+
+   select{
+     border: none;
+     color: $black;
+     background: $lightLight-shadow;
+
+     &:focus{
+      border: 3px solid $light-blue;
+     }
+
+     option {
+      margin: 40px;
+      background: rgba(0, 0, 0, 0.3);
+      color: #fff;
+      }
+   }
+
+   .with-static-placeholder {
+     display: flex;
+     .static-placeholder {
+      width: min-content;
+      padding: 0;
+      margin: 0;
+     }
+   }
+
+   div.textarea,
+   input[type="password"],
+   input[type="email"],
+   input[type="number"],
+   input[type="text"]{
+      -webkit-border-radius:0px;
+      -webkit-appearance: none;
+      border-radius: 0;
+     font-family: inherit;
+     width: 95%;
+     padding: 0.5em 0;
+      padding-left: 7px;
+     background: none;
+     color: $black;
+     font-size: 1.5em;
+     letter-spacing: 1px;
+     font-weight: 500;
+     border: none;
+     border-bottom: 1px solid $lighter;
+     overflow-x: scroll;
+     text-overflow: ellipsis;
+
+     @media #{$mobileScreenSize} {
+      font-size: 16px;
+    }
+
+     /*Some sibling magic happens */
+     &:focus + .separator {
+       transform: scaleX(1) translateY(-2px);   
+       opacity: 1;
+     }
+
+     &.emptyField{
+        border-bottom: 1px solid $red;
+     }
+
+     /*Some sibling magic happens */
+     &:focus + .separator-warning {
+       transform: scaleX(1) translateY(-2px);   
+       opacity: 1;
+     } 
+   }
+}
+
+
+.switch {
+  align-items: center;
+  display: flex;
+}
+
+.switch__input {
+  display: none;
+  &:checked {
+    + .switch__checkbox {
+      background-color: $switch-on-background-color;
+      box-shadow: $switch-on-box-shadow;
+      &::before {
+        transform: scale(0);
+      }
+      &::after {
+        left: $switch-width - $switch-knob-size - ($switch-padding * 2);
+      }
+    }
+  }
+}
+
+.switch__checkbox {
+  background-color: $switch-border-color;
+  border-radius: $switch-border-radius;
+  cursor: pointer;
+  height: $switch-height;
+  position: relative;
+  transition: $switch-transition;
+  width: $switch-width;
+  &::before, &::after {
+    content: '';
+    bottom: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: $switch-transition;
+  }
+  
+  // Knob Track
+  &::before {
+    background-color: $switch-off-background-color;
+    box-shadow: $switch-off-box-shadow;
+    border-radius: inherit;
+    right: 0;
+    transform: scale(1);
+    margin: $switch-border-size;
+  }
+  
+  // Knob
+  &::after {
+    background-color: $switch-knob-background-color;
+    border: $switch-knob-border-width solid $switch-knob-border-color;
+    border-radius: $switch-knob-border-radius;
+    box-shadow: $switch-knob-box-shadow;
+    height: $switch-knob-size;
+    margin-bottom: auto;
+    margin-top: auto;
+    position: absolute;
+    margin: auto $switch-padding;
+    width: $switch-knob-size;
+  }
+}
+
+.switch-container {
+  padding: 10px;
+  margin-left: 20px;
+}
+
+@media #{$mobileScreenSize} {
+  .form-field.buttons{
+    font-size: 12px;
+    margin: 25px 0px 25px 0px;
+    padding: 0px;
+  }
+
+  .input-container{
+    margin-top: 0px;
+
+    &.sm{
+      margin-right: 0px;
+      width: 100%;
+    }
+  }
+}
