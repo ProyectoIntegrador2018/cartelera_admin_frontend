@@ -15,6 +15,7 @@ module.exports = merge(common, {
         contentBase: './src/public',
         historyApiFallback: true,
         host: '0.0.0.0',
-        disableHostCheck: true
+        disableHostCheck: true,
+        port: (process.env.PORT || 5000)
     }
 })
