@@ -5,6 +5,10 @@
   "author": "Orion",
   "license": "ISC",
   "main": "./dist/bundle.js",
+  "engines": {
+    "npm": "6.4.0",
+    "node": "8.11.4"
+  },
   "scripts": {
     "build": "webpack --config webpack.prod.js --env.build production",
     "start": "webpack-dev-server --config webpack.dev.js --env.build development",
