@@ -2,7 +2,7 @@
   "name": "cartelera-admin",
   "version": "1.0.0",
   "description": "Repositorio de Cartelera de Innovación y Emprendimiento",
-  "author": "Orion",
+  "author": "Orion/Orange",
   "license": "ISC",
   "main": "./dist/bundle.js",
   "engines": {
