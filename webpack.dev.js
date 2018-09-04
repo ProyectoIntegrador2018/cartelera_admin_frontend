@@ -16,6 +16,6 @@ module.exports = merge(common, {
         historyApiFallback: true,
         host: '0.0.0.0',
         disableHostCheck: true,
-        port: (process.env.PORT || 4000)
+        port: (process.env.PORT || 5000)
     }
 })
