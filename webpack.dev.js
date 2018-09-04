@@ -9,13 +9,13 @@ module.exports = merge(common, {
                 mode: 'development'
             }
         }
-        )],
+    )],
     devtool: 'inline-source-map',
     devServer: {
         contentBase: './src/public',
         historyApiFallback: true,
         host: '0.0.0.0',
         disableHostCheck: true,
-        port: (process.env.PORT || 5001)
+        port: (process.env.PORT || 5000)
     }
 })
