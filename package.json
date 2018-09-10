@@ -14,7 +14,6 @@
     "start": "webpack-dev-server --config webpack.dev.js --env.build development",
     "clean": "node_modules/.bin/rimraf src/public",
     "clean:all": "node_modules/.bin/rimraf src/public node_modules",
-    "heroku-postbuild": "webpack -p",
     "build:prod": "NODE_ENV=production webpack --config webpack.prod.js --env.build production -p --progress --colors --bail --optimize-minimize",
     "postinstall": "npm run build:prod"
   },
