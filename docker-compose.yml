@@ -1,0 +1,18 @@
+version: '3.1'
+
+services:
+  web: &app
+    image: lucfg/cartelera:development
+    build:
+      context: .
+      dockerfile: dev.Dockerfile
+    volumes:
+      - .:/usr/src/app
+    command: npm start
+    stdin_open: true
+    tty: true
+    ports:
+      - ${WEB_PORT:-5000}:${WEB_PORT:-5000}
+    environment: &app_env
+      NODE_ENV: development
+      PORT: ${WEB_PORT:-5000}
