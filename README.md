@@ -46,7 +46,7 @@ You should ask for access to this tools if you don't have it already:
 
 * [Github repo](https://github.com/ProyectoIntegrador2018/cartelera_admin_frontend)
 <!-- * [Backlog]() -->
-<!-- * [Heroku](https://cartelera-api.herokuapp.com/) -->
+<!-- * [Heroku](https://cartelerai-api.herokuapp.com/) -->
 <!-- * [Documentation]() -->
 
 ## Development
