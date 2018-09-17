@@ -13,3 +13,4 @@ awsmobilejs/\#current-backend-info
 ~awsmobilejs-*/
 .npm/
 .ash_history
+.node_repl_history

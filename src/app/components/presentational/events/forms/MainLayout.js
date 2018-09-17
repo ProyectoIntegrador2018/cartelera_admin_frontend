@@ -4,12 +4,12 @@ import { Formik, Form } from 'formik'
 import Yup from 'yup'
 import Registrees from 'Containers/events/Registrees'
 import { EventFormValidations } from 'Helpers/constants'
-import * as EventFormSection from './index'
+import * as EventFormSection from './Index'
 import { eventInitialValues } from './helper'
 import 'Style/eventDetail.scss'
 import 'Style/common/segmentedForm.scss'
-import { SubmitButton } from 'Presentational/elements/Form'
-import { ModalAlert } from 'Presentational/elements/index'
+import { SubmitButton } from '../../elements/Form'
+import { ModalAlert } from '../../elements/index'
 
 export const EventForm = (props) => {
     let initialValues = props.event ? props.event : eventInitialValues
