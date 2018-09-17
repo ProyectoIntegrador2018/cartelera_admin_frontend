@@ -1,8 +1,9 @@
 # 1: Start off with node 6:
 # NOTE: firebase-tools serve won't run unless using node v6.11:
-FROM node:6.11-alpine
+FROM node:8.12.0-alpine
 
 # 2: We'll set the application path as the working directory
+ADD . /usr/src/app
 WORKDIR /usr/src/app
 
 # 3: We'll add the app's binaries path to $PATH:
@@ -19,3 +20,8 @@ RUN set -ex && \
 
 # As with all node projects, we won't install npm dependencies (even with yarn) here.
 # We will, however, add a `check || install` routine on the development entrypoint script.
+
+RUN set -ex && \
+  npm install
+
+CMD node server.prod.js

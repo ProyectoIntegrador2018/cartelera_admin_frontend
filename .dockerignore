@@ -1,0 +1,7 @@
+node_modules/
+.ash_history
+.npm/
+docker-compose.yml
+dev.Dockerfile
+.eslintrc.js
+README.md

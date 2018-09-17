@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
-import { EventForm, EventFormNav, EventFormRoutes } from 'Presentational/events/forms'
+import { EventForm, EventFormNav, EventFormRoutes } from './forms/MainLayout'
 import { withFeedback } from 'Containers/hoc'
 
 const NewEvent = (props) => (

@@ -2,13 +2,13 @@ import React from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { load } from 'Containers/hoc'
 import { Format } from './helper'
-import { getEventInitialValues } from 'Presentational/events/forms/helper'
+import { getEventInitialValues } from './forms/helper'
 import {
     EventForm,
     EventFormNav,
     Actions as EventFormActions,
     EventFormRoutes
-} from 'Presentational/events/forms'
+} from './forms/MainLayout'
 
 const EventsEdit = (props) => {
     let event = getEventInitialValues(props.event)

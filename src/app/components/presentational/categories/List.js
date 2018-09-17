@@ -1,8 +1,8 @@
 import React from 'react'
 import { load } from 'Containers/hoc'
 import { Entity } from 'Helpers/object'
-import { SelectedCategoryRoutes } from 'Presentational/categories'
-import { ExpandedList, CategoryAvatar, getCatRandomColor, EmptyCategories } from 'Presentational/elements'
+import { SelectedCategoryRoutes } from './Index'
+import { ExpandedList, CategoryAvatar, getCatRandomColor, EmptyCategories } from '../elements/index'
 
 const CategoriesList = (props) => {
     if (Entity.isEmpty(props.categories)) {
