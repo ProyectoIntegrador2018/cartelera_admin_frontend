@@ -2,7 +2,7 @@ import React from 'react'
 import { Router, Switch, Route } from 'react-router-dom'
 import { history } from 'Helpers/index'
 import { MainLayout, withAuth } from 'Containers/index'
-import { LoginLayout } from 'Presentational/login'
+import { LoginLayout } from '../components/presentational/login/Index'
 
 const Routes = () => (
     <Router history={history}>

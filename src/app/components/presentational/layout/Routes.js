@@ -1,9 +1,9 @@
 import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
-import { Layout as EventsLayout } from 'Presentational/events/index'
-import { Layout as ProfileLayout } from 'Presentational/profile'
-import { Layout as UsersLayout } from 'Presentational/users'
-import { Layout as CategoriesLayout } from 'Presentational/categories'
+import { Layout as EventsLayout } from '../events/Index'
+import { Layout as ProfileLayout } from '../profile/Layout'
+import { Layout as UsersLayout } from '../users/Layout'
+import { Layout as CategoriesLayout } from '../categories/Layout'
 
 export const DefaultRoute = props => (
     <Route exact path='/' render={() => <Redirect to='eventos' />} />

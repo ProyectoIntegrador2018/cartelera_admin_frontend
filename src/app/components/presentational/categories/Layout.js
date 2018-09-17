@@ -2,7 +2,7 @@ import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
 import { Add as AddCategory, List as CategoriesList } from 'Containers/categories'
 import { Entity } from 'Helpers/object'
-import { ShowCategory, EditCategory } from 'Presentational/categories'
+import { ShowCategory, EditCategory } from './Index'
 import 'Style/common/layouts/expandedList.scss'
 
 const CategoriesLayout = (props) => (
