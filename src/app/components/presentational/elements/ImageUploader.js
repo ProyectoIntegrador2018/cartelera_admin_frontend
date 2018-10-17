@@ -30,16 +30,12 @@ export class ImageUploader extends React.Component {
         return `${key}-${name}`
     }
 
-    onImageLoad(url) {
-        if (!url.startsWith('data:image/gif;base64')) {
-            let newUrl = url.split('?')[0]
-            this.props.setFieldValue(this.props.label, newUrl)
-            this.props.setTouched({ ...this.props.touched, [this.props.label]: true })
-            this.setState({
-                previewSrc: newUrl
-            })
-        }
+    onImageLoad(event) {
+        this.props.setFieldValue(this.props.label, event.target.value)
+        this.props.setTouched({ ...this.props.touched, [this.props.label]: true })
+        this.setState({previewSrc: event.target.value})
     }
+
     render() {
         return (
             <div className='photo-editor'>
@@ -47,16 +43,7 @@ export class ImageUploader extends React.Component {
                     {Format.capitalize(Labels[this.props.label])}
                 </label>
                 <div className='btn-img-picker'>
-                    <Button handleClick={e => e.preventDefault()}>
-                        Selecciona una imagen
-                    </Button>
-                    <div className='img-picker'>
-                        <S3Image
-                            fileToKey={this.fileToKey}
-                            picker
-                            onLoad={this.onImageLoad}
-                            title='Sube una imagen' />
-                    </div>
+                    <input type="text" onChange={this.onImageLoad}></input>
                 </div>
                 <div className='show-image'>
                     <img src={this.state.previewSrc} />

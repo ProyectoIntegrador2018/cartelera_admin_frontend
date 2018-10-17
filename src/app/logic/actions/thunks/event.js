@@ -56,6 +56,7 @@ export const update = (event) => {
 }
 
 export const create = (event) => {
+    console.log(event)
     return dispatch => serverCall({
         dispatch: dispatch,
         actionType: EventActions.Create,
