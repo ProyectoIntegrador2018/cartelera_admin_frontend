@@ -4,7 +4,7 @@ import AllEvents from './All'
 import {
     Edit as EditEvent,
     Create as CreateEvent
-} from 'Containers/events'
+} from 'Containers/events/index'
 import 'Style/eventsMenuLayout.scss'
 
 const EventsLayout = () => (

@@ -4,7 +4,7 @@ import { withRouter, Redirect, Route } from 'react-router-dom'
 import { getIndex } from './helper'
 import { Entity, CategoryActions } from 'Helpers/index'
 import { thunks } from 'Logic/actions/thunks'
-import { CategoriesList } from '../../presentational/categories/List'
+import { CategoriesList } from '../../presentational/categories/Index'
 
 class Categories extends React.Component {
     constructor() {

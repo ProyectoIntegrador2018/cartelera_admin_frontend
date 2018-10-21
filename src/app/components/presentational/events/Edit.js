@@ -8,7 +8,7 @@ import {
     EventFormNav,
     Actions as EventFormActions,
     EventFormRoutes
-} from './forms/MainLayout'
+} from './forms/Index'
 
 const EventsEdit = (props) => {
     let event = getEventInitialValues(props.event)
