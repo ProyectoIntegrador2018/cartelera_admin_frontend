@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
-import { Add as AddCategory, List as CategoriesList } from 'Containers/categories'
+import { Add as AddCategory, List as CategoriesList } from 'Containers/categories/index'
 import { Entity } from 'Helpers/object'
 import { ShowCategory, EditCategory } from './Index'
 import 'Style/common/layouts/expandedList.scss'
@@ -8,15 +8,15 @@ import 'Style/common/layouts/expandedList.scss'
 const CategoriesLayout = (props) => (
     <div className='page-container'>
         <Route path='/categorias' render={CategoriesPage} />
+        <div className='expanded-list'>
+            <CategoriesList />
+        </div>
     </div>
 )
 
 const CategoriesPage = (props) => (
     <React.Fragment>
         <Header match={props.match} />
-        <div className='expanded-list'>
-            <CategoriesList />
-        </div>
     </React.Fragment>
 )
 
