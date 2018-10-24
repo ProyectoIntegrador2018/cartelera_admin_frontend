@@ -1,17 +1,17 @@
-import React, { Fragment } from 'react'
-import { S3Image } from 'aws-amplify-react'
+import React from 'react'
+import { Storage } from 'aws-amplify'
 import { Format, Labels } from 'Helpers/index'
-import { Button } from 'Presentational/elements'
-import 'Style/imagePicker.scss'
+import '../../../style/common/imagebutton.css'
 
 export class ImageUploader extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             previewSrc: props.values[props.label],
+            loadingImage: false,
         }
         this.fileToKey = this.fileToKey.bind(this)
-        this.onImageLoad = this.onImageLoad.bind(this)
+        this.uploadImage = this.uploadImage.bind(this)
     }
 
     componentDidMount() {
@@ -23,17 +23,35 @@ export class ImageUploader extends React.Component {
     }
 
     fileToKey(data) {
-        const { name, size, type } = data;
+        const { name, size, type } = data
         let date = new Date()
         date = date.getTime()
         let key = (date / 1000).toFixed()
         return `${key}-${name}`
     }
 
-    onImageLoad(event) {
-        this.props.setFieldValue(this.props.label, event.target.value)
-        this.props.setTouched({ ...this.props.touched, [this.props.label]: true })
-        this.setState({previewSrc: event.target.value})
+    uploadImage(e) {
+        this.setState({
+            loadingImage: true,
+        })
+
+        const imageFile = e.target.files[0]
+        const imageKey = this.fileToKey(imageFile)
+
+        Storage.put(imageKey, imageFile, {
+            contentType: 'image/jpg'
+        })
+            .then((result) => {
+                let imageURL = 'https://s3.amazonaws.com/carteleraeventsimages/public/'
+                imageURL += result.key
+
+                this.props.setFieldValue(this.props.label, imageURL)
+                this.setState({
+                    previewSrc: imageURL, 
+                    loadingImage: false
+                })
+            })
+            .catch(err => console.log(err))
     }
 
     render() {
@@ -42,13 +60,26 @@ export class ImageUploader extends React.Component {
                 <label>
                     {Format.capitalize(Labels[this.props.label])}
                 </label>
-                <div className='btn-img-picker'>
-                    <input type="text" onChange={this.onImageLoad}></input>
+                <div className="upload-btn-wrapper">
+                    <button className="btn-image">Selecciona una imagen</button>
+                    <input type="file" onChange={this.uploadImage} />
                 </div>
                 <div className='show-image'>
-                    <img src={this.state.previewSrc} />
+                    <ImageSection loadingImage={this.state.loadingImage} imageURL={this.state.previewSrc} />
                 </div>
             </div>
         )
+    }
+}
+
+const ImageSection = ({ loadingImage, imageURL }) => {
+    if (loadingImage) {
+        return (
+            <div className="loader">
+                <p>Cargando imagen</p>
+            </div>
+        )
+    } else {
+        return <img src={imageURL} />
     }
 }
