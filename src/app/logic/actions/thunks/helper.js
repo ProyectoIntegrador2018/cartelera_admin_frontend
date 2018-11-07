@@ -5,7 +5,11 @@ import { createAction } from 'Logic/actions'
 export const request = (
     axios.create({
         //baseURL: 'https://5a8e3738b5a3130012909abb.mockapi.io/api',
-        baseURL: 'http://localhost:3000'
+        if(process.env.NODE_ENV === 'development') {
+            baseURL: 'http://localhost:3000'
+        } else {
+            baseURL: 'http://cartelerai-api.herokuapp.com'
+        }
     })
 )
 
