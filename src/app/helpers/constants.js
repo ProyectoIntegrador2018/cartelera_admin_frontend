@@ -53,10 +53,13 @@ export const Status = Object.freeze({
 export const UserTypes = Object.freeze({
     Sponsor: 'sponsor',
     Admin: 'admin',
+    Applicant: 'applicant',
     sponsor: 'sponsor',
     admin: 'admin',
+    applicant: 'applicant',
     sponsors: 'sponsor',
-    admins: 'admin'
+    admins: 'admin',
+    applicants: 'applicants',
 })
 
 export const UserForms = Object.freeze({

@@ -5,26 +5,33 @@ import { Add as AddUser, List as UsersList } from 'Containers/users'
 import { EditUser, ShowUser } from './index'
 import Header from 'Presentational/elements/Header'
 
-const UsersLayout = (props) => (
-    <React.Fragment>
+const UsersLayout = (props) => {
+    let user = props.user
+    let userOption = user.userType == 'sponsor' ? 'applicants' : 'sponsors'
+
+    return <React.Fragment>
         <Route
             exact
             path='/usuarios/'
             render={() => <Redirect
-                to={`/usuarios/sponsors/`} />
+                to={`/usuarios/${userOption}/`} />
             } />
         <Route
             path='/usuarios/:type'
-            render={UsersPage} />
+            render={(props) => (<UsersPage {...props} user={user} />)
+            } />
     </React.Fragment>
-)
+}
 
-const UsersPage = (props) => (
-    <React.Fragment>
+export const UsersPage = (props) => {
+    let filters = props.user.userType == 'sponsor' ? ['applicants'] : ['sponsors', 'admins']
+    console.log(props.match.params)
+
+    return <React.Fragment>
         <Header
             {...props}
             mainPath='usuarios'
-            filter={['sponsors', 'admins']}>
+            filter={filters}>
             <AddUser type={props.match.params.type} />
         </Header>
         <div className='expanded-list'>
@@ -32,7 +39,7 @@ const UsersPage = (props) => (
                 type={props.match.params.type} />
         </div>
     </React.Fragment>
-)
+}
 
 export const SelectedUserRoutes = (props) => (
     <React.Fragment>

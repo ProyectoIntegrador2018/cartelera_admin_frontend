@@ -21,6 +21,14 @@ export const EmptyAdmins = (props) => (
     </EmptyElement>
 )
 
+export const EmptyApplicants = (props) => (
+    <EmptyElement>
+        <img className='empty-icon' src={EmptyUsersIcon} />
+        <div>No existen applicants</div>
+        <div>Crea uno nuevo</div>
+    </EmptyElement>
+)
+
 export const EmptyCategories = (props) => (
     <EmptyElement>
         <img className='empty-icon' src={EmptyCategoryIcon} />

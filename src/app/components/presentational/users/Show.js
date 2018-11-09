@@ -47,46 +47,53 @@ const Title = (props) => {
     </div>
 }
 
-const Details = (props) => (
-    <div className='details-wrapper'>
+const Details = (props) => {
+    console.log(props.user)
+    let email = props.user.email ? props.user.email : ''
+    let enabled = props.user.enabled
+    let phoneNumber = props.user.phoneNumber ? props.user.phoneNumber : ''
+    let office = props.user.office ? props.user.office : ''
+    let campus = props.user.campus ? props.user.campus : 'MTY'
+
+    return <div className='details-wrapper'>
         <div className='details'>
             <div className='labels'>
                 <div className='label'>{Format.capitalize(Labels.email)}</div>
                 <div className='value'>
-                    {<FontAwesomeIcon icon={faEnvelope} /> && props.user.email}
+                    {<FontAwesomeIcon icon={faEnvelope} /> && email}
                 </div>
             </div>
 
             <div className='labels'>
                 <div className='label'>{Format.capitalize(Labels.enabled)}</div>
                 <div className='value'>
-                    {props.user.enabled ? 'Activado' : 'Bloqueado'}
+                    {enabled ? 'Activado' : 'Bloqueado'}
                 </div>
             </div>
 
             <div className='labels'>
                 <div className='label'>{Format.capitalize(Labels.phoneNumber)}</div>
                 <div className='value'>
-                    {<FontAwesomeIcon icon={faPhone} /> && props.user.phoneNumber}
+                    {<FontAwesomeIcon icon={faPhone} /> && phoneNumber}
                 </div>
             </div>
 
             <div className='labels'>
                 <div className='label'>{Format.capitalize(Labels.office)}</div>
                 <div className='value'>
-                    {props.user.office}
+                    {office}
                 </div>
             </div>
 
             <div className='labels'>
                 <div className='label'>{Format.capitalize(Labels.campus)}</div>
                 <div className='value'>
-                    {getCampus(props.user.campus)}
+                    {getCampus(campus)}
                 </div>
             </div>
         </div>
     </div>
-)
+}
 
 function getCampus (keyToFind) {
     var campusObject = campusList.find(function (obj) { return obj.key === keyToFind })
