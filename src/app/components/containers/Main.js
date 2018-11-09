@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 import { load } from 'Containers/hoc'
 import { thunks } from 'Logic/actions/thunks'
-import { AdminLayout, SponsorLayout } from 'Presentational/layout'
+import { AdminLayout, SponsorLayout, ApplicantLayout } from 'Presentational/layout'
 import 'Style/main.scss'
 import "node_modules/react-tagging-input/src/component/scss/styles.scss";
 
@@ -17,11 +17,20 @@ class Main extends React.Component {
                     logout={this.props.logout} />
             )
         }
-        return (
-            <SponsorLayout 
-                currentUser={this.props.currentUser.show}
-                logout={this.props.logout}/>
-        )
+        if (this.props.currentUser.show.userType == 'sponsor') {
+            return (
+                <SponsorLayout
+                    currentUser={this.props.currentUser.show}
+                    logout={this.props.logout}/>
+            )
+        }
+        if (this.props.currentUser.show.userType == 'applicant') {
+            return (
+                <ApplicantLayout
+                    currentUser={this.props.currentUser.show}
+                    logout={this.props.logout}/>
+            )
+        }
     }
 }
 
