@@ -4,14 +4,17 @@ import { faEnvelope } from '@fortawesome/fontawesome-free-regular'
 import { load } from 'Containers/hoc'
 import { Entity } from 'Helpers/object'
 import { SelectedUserRoutes } from './Layout'
-import { UserAvatar, getRandomColor, ExpandedList, EmptySponsors, EmptyAdmins } from 'Presentational/elements'
+import { UserAvatar, getRandomColor, ExpandedList, EmptySponsors, EmptyAdmins, EmptyApplicants } from 'Presentational/elements'
 
 const UsersList = (props) => {
     if (Entity.isEmpty(props.users)) {
+        if (props.type == 'admins') {
+            return <EmptyAdmins />
+        }
         if (props.type == 'sponsors') {
             return <EmptySponsors />
         }
-        return <EmptyAdmins />
+        return <EmptyApplicants />
     }
 
     let listData = {
