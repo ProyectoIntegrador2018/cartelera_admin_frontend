@@ -12,10 +12,12 @@ export const EventsRoutes = props => (
     <Route path='/eventos' render={(props) =>
         <div className='page-container'><EventsLayout {...props} /></div>} />
 )
-export const UsersRoute = props => (
-    <Route path='/usuarios' render={(props) =>
-        <div className='page-container'><UsersLayout {...props} /></div>} />
-)
+export const UsersRoute = props => {
+    let user = props.user
+    return <Route path='/usuarios' render={(props) => {
+        return <div className='page-container'><UsersLayout {...props} user={user} /></div>}
+    } />
+}
 
 export const CategoriesRoute = props => (
     <Route path='/categorias' render={CategoriesLayout} />
@@ -23,5 +25,5 @@ export const CategoriesRoute = props => (
 
 export const ProfileRoute = props => (
     <Route path='/perfil' render={() =>
-        <div className='page-container'><ProfileLayout user={props.user} logout={props.logout}/></div>} />
+        <div className='page-container'><ProfileLayout user={props.user} logout={props.logout} /></div>} />
 )
