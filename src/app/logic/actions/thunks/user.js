@@ -76,14 +76,36 @@ export const update = (user, isCurrent = false) => {
 }
 
 export const create = (user) => {
-    return dispatch => serverCall({
-        dispatch: dispatch,
-        actionType: UserActions.Create,
-        call: () => request.post(
-            '/sponsor/',
-            { user: { email: user.email, 'user_type': user.type } },
-            { headers: headers.withAuth() })
-    })
+    if (user.type == 'admins') {
+        return dispatch => serverCall({
+            dispatch: dispatch,
+            actionType: UserActions.Create,
+            call: () => request.post(
+                '/admin/',
+                { user: { email: user.email, user_type: 'admin' } },
+                { headers: headers.withAuth() })
+        })
+    }
+    if (user.type == 'sponsors') {
+        return dispatch => serverCall({
+            dispatch: dispatch,
+            actionType: UserActions.Create,
+            call: () => request.post(
+                '/sponsor/',
+                { user: { email: user.email, user_type: 'sponsor' } },
+                { headers: headers.withAuth() })
+        })
+    }
+    if (user.type == 'applicants') {
+        return dispatch => serverCall({
+            dispatch: dispatch,
+            actionType: UserActions.Create,
+            call: () => request.post(
+                '/applicant/',
+                { user: { email: user.email, user_type: 'applicant' } },
+                { headers: headers.withAuth() })
+        })
+    }
 }
 
 export const all = (type) => {
