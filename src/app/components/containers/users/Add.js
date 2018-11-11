@@ -19,7 +19,7 @@ class Add extends React.Component {
         this.setState({
             email: email
         })
-        this.props.add({ email: email, type: this.props.type })
+        this.props.add({ email: email, type: this.props.type, sponsoredBy: this.props.userId})
     }
     handleError() {
         ModalAlert({

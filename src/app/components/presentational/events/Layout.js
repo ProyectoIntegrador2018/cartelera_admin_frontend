@@ -7,19 +7,22 @@ import {
 } from 'Containers/events/index'
 import 'Style/eventsMenuLayout.scss'
 
-const EventsLayout = () => (
-    <React.Fragment>
-        <Route
-            exact
-            path='/eventos'
-            render={() => <AllEvents />} />
-        <Route
-            path='/eventos/nuevo'
-            render={() => <CreateEvent />} />
-        <Route
-            path='/eventos/:id/editar'
-            render={({ match }) => <EditEvent id={match.params.id} />} />
-    </React.Fragment>
-)
+const EventsLayout = (props) => {
+    let user = props.user
+    return (
+        <React.Fragment>
+            <Route
+                exact
+                path='/eventos'
+                render={() => <AllEvents />} />
+            <Route
+                path='/eventos/nuevo'
+                render={() => <CreateEvent />} />
+            <Route
+                path='/eventos/:id/editar'
+                render={({ match }) => <EditEvent id={match.params.id} user={user} />} />
+        </React.Fragment>
+    )
+}
 
 export default EventsLayout

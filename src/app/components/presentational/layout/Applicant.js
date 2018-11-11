@@ -13,7 +13,7 @@ export const ApplicantLayout = props => (
                 logout={props.logout} />
         ]}
         routes={[
-            <EventsRoutes />,
+            <EventsRoutes user={props.currentUser} />,
             <ProfileRoute user={props.currentUser} logout={props.logout} />
         ]}
     />
