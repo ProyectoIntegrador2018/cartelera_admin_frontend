@@ -102,7 +102,7 @@ export const create = (user) => {
             actionType: UserActions.Create,
             call: () => request.post(
                 '/applicant/',
-                { user: { email: user.email, user_type: 'applicant' } },
+                { user: { email: user.email, user_type: 'applicant', sponsored_by: user.sponsoredBy} },
                 { headers: headers.withAuth() })
         })
     }
