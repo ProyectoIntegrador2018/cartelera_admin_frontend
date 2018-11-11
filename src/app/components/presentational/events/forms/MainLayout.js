@@ -31,17 +31,26 @@ export const EventForm = (props) => {
         {(formProps) => {
             var routesWithProps = React.Children.map(props.children, child =>
                 React.cloneElement(child, { ...formProps, ...props }))
-            return (
-                <Form>
-                    {routesWithProps}
-                    {!location.pathname.includes('registrados') 
-                    && <div className="form-field buttons">
-                        <SubmitButton {...formProps}>
-                            {props.event ? 'Actualizar' : 'Crear'}
-                        </SubmitButton>
-                    </div>}
-                </Form>
-            )
+            if (props.event.reviewStatus == 'sponsor_review') {
+                return (
+                    <Form>
+                        {routesWithProps}
+                        {!location.pathname.includes('registrados')}
+                    </Form>
+                )
+            } else {
+                return (
+                    <Form>
+                        {routesWithProps}
+                        {!location.pathname.includes('registrados') 
+                        && <div className="form-field buttons">
+                            <SubmitButton {...formProps}>
+                                {props.event ? 'Actualizar' : 'Crear'}
+                            </SubmitButton>
+                        </div>}
+                    </Form>
+                )
+            }
         }}
     </Formik>
 }
@@ -81,12 +90,15 @@ export const EventFormNav = (props) => {
             {props.edit && props.showRegistrees &&
                 <NavButton to={`/eventos/${path}/registrados`}>
                     Lista de registrados
-            </NavButton>}
+                </NavButton>}
 
             <NavButton to={`/eventos/${path}/opcional`}>
                 Opcional
             </NavButton>
 
+            {props.edit && props.event.reviewStatus == 'event_rejected' && <NavButton to={`/eventos/${path}/comentarios`}>
+                Comentarios
+            </NavButton>}
         </div>
     )
 }
@@ -115,6 +127,9 @@ export const EventFormRoutes = (props) => {
             {props.edit && <Route
                 path={`/eventos/${path}/registrados`}
                 render={() => <Registrees event={props.event} />} />}
+            {props.edit && props.event.reviewStatus == 'event_rejected' && <Route
+                path={`/eventos/${path}/comentarios`}
+            render={() => <EventFormSection.Comments {...routeProps} />} /> }
         </div>
     )
 }

@@ -81,6 +81,7 @@ export const Labels = Object.freeze({
     past: 'pasados',
     name: 'nombre',
     description: "descripción",
+    reviewComments: "comentarios",
     category: "categoría",
     categoryId: 'categoría',
     rangeDatetime: "fecha y hora",

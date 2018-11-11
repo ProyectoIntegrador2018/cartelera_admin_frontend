@@ -33,6 +33,7 @@ class Create extends React.Component {
         values.endDatetime = values.rangeDatetime.endDatetime
 
         if (this.props.currentUser.show.userType == 'applicant') {
+            values.reviewStatus = 'sponsor_review'
             values.published = false
             values.sponsorId = this.props.currentUser.show.sponsoredBy
         }

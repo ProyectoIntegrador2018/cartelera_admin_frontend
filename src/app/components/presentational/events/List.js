@@ -78,6 +78,7 @@ const EventGridItem = ({ event, index }) => {
                 {event.cancelled && <div className='cancelled-flag'>Cancelado</div>}
             </div>
             <div className='text'>
+                <ReviewStatus reviewStatus={event.reviewStatus} />
                 <div className='event-grid-title'>{event.name}</div>
                 <div className='event-grid-date'>
                     {Format.dateInSpanish(event.startDatetime)}
@@ -89,6 +90,25 @@ const EventGridItem = ({ event, index }) => {
             </div>
         </Link>
     )
+}
+
+const ReviewStatus = ({ reviewStatus }) => {
+    if (reviewStatus == 'sponsor_review') {
+        return (
+            <div className='event-grid-review'>En revisión</div>
+        )
+    }
+    if (reviewStatus == 'event_approved') {
+        return (
+            <div className='event-grid-approved'>Aprobado</div>
+        )
+    }
+    if (reviewStatus == 'event_rejected') {
+        return (
+            <div className='event-grid-rejected'>Rechazado</div>
+        )
+    }
+    return <div></div>
 }
 
 const Hashtags = ({ hashtag, index }) => {
