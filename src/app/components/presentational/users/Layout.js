@@ -25,14 +25,13 @@ const UsersLayout = (props) => {
 
 export const UsersPage = (props) => {
     let filters = props.user.userType == 'sponsor' ? ['applicants'] : ['sponsors', 'admins']
-    console.log(props.match.params)
 
     return <React.Fragment>
         <Header
             {...props}
             mainPath='usuarios'
             filter={filters}>
-            <AddUser type={props.match.params.type} />
+            <AddUser type={props.match.params.type} userId={props.user.id} />
         </Header>
         <div className='expanded-list'>
             <UsersList
