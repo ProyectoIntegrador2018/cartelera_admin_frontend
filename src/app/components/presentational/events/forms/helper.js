@@ -4,6 +4,7 @@ today.setHours(0, 0, 0, 0)
 export const eventInitialValues = {
     name: '',
     description: '',
+    reviewComments: '',
     location: '',
     campus: 'MTY',
     categoryId: 1,

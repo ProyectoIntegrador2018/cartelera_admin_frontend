@@ -86,6 +86,25 @@ export const ConfirmPublish = (props) => (
     </ConfirmationModal>
 )
 
+export const ConfirmApprove = (props) => (
+    <ConfirmationModal
+        error
+        title={'Confirmar aprobación'}
+        subtitle={props.event.name}
+        confirmationMsg={'El evento será aprobado'}
+        lastMsg={'confirmar aprobación'}
+        buttonClass={'modal-confirm-button'}
+        handleConfirmCancel={() => {
+            props.toggleApproved()
+            props.onClose()
+        }}
+        handleCancel={() => {
+            props.onClose()
+        }}>
+        {props.error}
+    </ConfirmationModal>
+)
+
 export const ConfirmUnpublish = (props) => (
     <ConfirmationModal
         error
@@ -163,6 +182,57 @@ export class ConfirmCancel extends React.Component {
                     rows='3'
                     placeholder='Mensaje de cancelación para el público (opcional)'
                     value={this.state.cancelMessage}
+                    onChange={this.handleChange}>
+                </textarea>
+                {this.props.error}
+            </ConfirmationModal>
+        )
+    }
+}
+
+export class ConfirmReject extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            reviewComments: ''
+        }
+        this.handleChange = this.handleChange.bind(this)
+    }
+
+    componentDidMount() {
+        this.setState({
+            reviewComments: ''
+        })
+    }
+
+    handleChange(e) {
+        this.setState({
+            reviewComments: e.target.value
+        })
+    }
+
+    render() {
+        return (
+            <ConfirmationModal
+                error
+                title={'Rechazar evento'}
+                subtitle={this.props.event.name}
+                confirmButtonType='danger'
+                confirmationMsg={'El evento será rechazado y se le notificará al aplicante'}
+                lastMsg={'rechazar evento'}
+                buttonClass={'modal-confirm-cancel-button'}
+                handleConfirmCancel={(reviewComments) => {
+                    this.props.handleConfirmReject(this.state.reviewComments)
+                    this.props.onClose()
+                }}
+                handleCancel={() => {
+                    this.props.onClose()
+                }}>
+                <textarea name='paragraph_text'
+                    cols='40'
+                    rows='5'
+                    placeholder='Mensaje de motivo del evento'
+                    value={this.state.reviewComments}
                     onChange={this.handleChange}>
                 </textarea>
                 {this.props.error}

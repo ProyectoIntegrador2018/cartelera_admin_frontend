@@ -11,8 +11,10 @@ class Edit extends React.Component {
     constructor(props) {
         super(props)
         this.action = EventActions.Get
+        this.toggleApproved = this.toggleApproved.bind(this)
         this.togglePublished = this.togglePublished.bind(this)
         this.handleConfirmCancel = this.handleConfirmCancel.bind(this)
+        this.handleConfirmReject = this.handleConfirmReject.bind(this)
         this.handleConfirmUpdate = this.handleConfirmUpdate.bind(this)
         this.textareaHandleChange = this.textareaHandleChange.bind(this)
         this.setTextarea = this.setTextarea.bind(this)
@@ -59,6 +61,11 @@ class Edit extends React.Component {
                 }
             }
         }
+
+        if (this.props.event.show.reviewStatus == 'event_rejected') {
+            updatedEvent['review_status'] = 'sponsor_review'
+        }
+
         this.action = EventActions.Update
         this.props.updateEvent(updatedEvent)
     }
@@ -67,6 +74,15 @@ class Edit extends React.Component {
         if (this.action == EventActions.Get) {
             this.setTextarea()
         }
+    }
+
+    toggleApproved() {
+        this.action = EventActions.Update
+        this.props.updateEvent({
+            id: this.props.event.show.id,
+            published: true,
+            review_status: 'event_approved'
+        })
     }
 
     togglePublished() {
@@ -83,6 +99,15 @@ class Edit extends React.Component {
             id: this.props.event.show.id,
             cancelled: true,
             cancel_message: cancelMessage
+        })
+    }
+
+    handleConfirmReject(reviewComments) {
+        this.action = EventActions.Update
+        this.props.updateEvent({
+            id: this.props.event.show.id,
+            review_status: 'event_rejected',
+            review_comments: reviewComments
         })
     }
 
@@ -103,8 +128,10 @@ class Edit extends React.Component {
                 event={this.props.event.show}
                 textarea={this.state.textarea}
                 textareaHandleChange={this.textareaHandleChange}
+                toggleApproved={this.toggleApproved}
                 togglePublished={this.togglePublished}
                 modal={ConfirmUpdate}
+                handleConfirmReject={this.handleConfirmReject}
                 handleConfirmCancel={this.handleConfirmCancel}
                 handleConfirmSubmit={this.handleConfirmUpdate}
                 hide

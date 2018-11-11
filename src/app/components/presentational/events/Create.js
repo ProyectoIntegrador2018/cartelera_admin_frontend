@@ -12,7 +12,7 @@ const NewEvent = (props) => (
                 </div>
             </div>
             <div className='edit-event-container'>
-                <EventFormNav />
+                <EventFormNav {...props}/>
                 <EventForm
                     {...props}>
                     <EventFormRoutes />

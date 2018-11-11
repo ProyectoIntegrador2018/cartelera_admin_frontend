@@ -24,6 +24,7 @@ const EventsEdit = (props) => {
                 </div>
                 <div className='edit-event-container'>
                     <EventFormNav
+                        {...props}
                         edit
                         showRegistrees={props.event.hasRegistration}
                         id={props.event.id} />

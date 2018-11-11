@@ -55,6 +55,24 @@
     color: $black;
 }
 
+.event-grid-review {
+    font-weight: 400;
+    font-size: 18px;
+    color: #efe007;
+}
+
+.event-grid-rejected {
+    font-weight: 400;
+    font-size: 18px;
+    color: #ef2907;
+}
+
+.event-grid-approved {
+    font-weight: 400;
+    font-size: 18px;
+    color: #0dbc41;
+}
+
 .event-grid-hashtags {
     overflow: hidden;
     text-overflow: ellipsis;
