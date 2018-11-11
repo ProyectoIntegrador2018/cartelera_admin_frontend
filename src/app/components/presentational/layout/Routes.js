@@ -8,15 +8,21 @@ import { Layout as CategoriesLayout } from '../categories/Index'
 export const DefaultRoute = props => (
     <Route exact path='/' render={() => <Redirect to='eventos' />} />
 )
-export const EventsRoutes = props => (
-    <Route path='/eventos' render={(props) =>
-        <div className='page-container'><EventsLayout {...props} /></div>} />
-)
+
+export const EventsRoutes = props => {
+    let user = props.user
+    return (
+        <Route path='/eventos' render={(props) =>
+            <div className='page-container'><EventsLayout {...props} user={user} /></div>} />
+    )
+}
+
 export const UsersRoute = props => {
     let user = props.user
-    return <Route path='/usuarios' render={(props) => {
-        return <div className='page-container'><UsersLayout {...props} user={user} /></div>}
-    } />
+    return (
+        <Route path='/usuarios' render={(props) =>
+            <div className='page-container'><UsersLayout {...props} user={user} /></div>} />
+    )
 }
 
 export const CategoriesRoute = props => (
