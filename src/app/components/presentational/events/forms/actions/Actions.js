@@ -22,26 +22,32 @@ const Action = (props) => {
     )
 }
 
-export const EventFormsActions = (props) => (
-    <div className='actions-container'>
-        <Action
-            type='icon-button primary'
-            label={props.event.published ?
-                'Quitar de vista pública' :
-                'Publicar evento'}
-            modal={props.event.published ? ConfirmUnpublish : ConfirmPublish}
-            event={props.event}
-            togglePublished={props.togglePublished}>
-            <FontAwesomeIcon icon={props.event.published ? faLock : faUsers} />
-        </Action>
+export const EventFormsActions = (props) => {
+    if (props.user.userType != 'applicant') {
+        return (
+            <div className='actions-container'>
+                <Action
+                    type='icon-button primary'
+                    label={props.event.published ?
+                        'Quitar de vista pública' :
+                        'Publicar evento'}
+                    modal={props.event.published ? ConfirmUnpublish : ConfirmPublish}
+                    event={props.event}
+                    togglePublished={props.togglePublished}>
+                    <FontAwesomeIcon icon={props.event.published ? faLock : faUsers} />
+                </Action>
 
-        <Action
-            type='icon-button danger'
-            label={props.event.cancelled ? 'Evento cancelado' : 'Cancelar evento'}
-            modal={props.event.cancelled ? FeedbackCancelled : ConfirmCancel}
-            event={props.event}
-            handleConfirmCancel={props.handleConfirmCancel}>
-            <FontAwesomeIcon icon={faBan} />
-        </Action>
-    </div>
-)
+                <Action
+                    type='icon-button danger'
+                    label={props.event.cancelled ? 'Evento cancelado' : 'Cancelar evento'}
+                    modal={props.event.cancelled ? FeedbackCancelled : ConfirmCancel}
+                    event={props.event}
+                    handleConfirmCancel={props.handleConfirmCancel}>
+                    <FontAwesomeIcon icon={faBan} />
+                </Action>
+            </div>
+        )
+    }
+
+    return <div></div>
+}

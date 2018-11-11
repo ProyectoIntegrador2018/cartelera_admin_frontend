@@ -31,6 +31,12 @@ class Create extends React.Component {
         values.applicantId = this.props.currentUser.show.id
         values.startDatetime = values.rangeDatetime.startDatetime
         values.endDatetime = values.rangeDatetime.endDatetime
+
+        if (this.props.currentUser.show.userType == 'applicant') {
+            values.published = false
+            values.sponsorId = this.props.currentUser.show.sponsoredBy
+        }
+        
         delete values.rangeDatetime
         this.props.createEvent(values)
     }

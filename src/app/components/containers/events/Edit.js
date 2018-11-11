@@ -98,6 +98,7 @@ class Edit extends React.Component {
     render() {
         return (
             <EditEvent
+                user={this.props.user}
                 action={this.action}
                 event={this.props.event.show}
                 textarea={this.state.textarea}
