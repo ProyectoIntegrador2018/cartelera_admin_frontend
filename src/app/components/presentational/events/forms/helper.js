@@ -4,7 +4,6 @@ today.setHours(0, 0, 0, 0)
 export const eventInitialValues = {
     name: '',
     description: '',
-    reviewComments: '',
     location: '',
     campus: 'MTY',
     categoryId: 1,
@@ -32,7 +31,9 @@ export const eventInitialValues = {
     photo: 'http://gda.itesm.mx/zonaei/content/bqsbCK0XJW/logo-iag_LCB.png',
     schedule: '',
     hasCapacity: false,
-    maxCapacity: '0'
+    maxCapacity: '0',
+    reviewComments: '',
+    reviewStatus: '',
 }
 
 export const getEventInitialValues = (event) => {

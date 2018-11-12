@@ -31,7 +31,7 @@ export const EventForm = (props) => {
         {(formProps) => {
             var routesWithProps = React.Children.map(props.children, child =>
                 React.cloneElement(child, { ...formProps, ...props }))
-            if (props.event.reviewStatus == 'sponsor_review') {
+            if (props.event && props.event.reviewStatus == 'sponsor_review') {
                 return (
                     <Form>
                         {routesWithProps}

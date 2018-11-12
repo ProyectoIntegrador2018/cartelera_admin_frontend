@@ -18,6 +18,7 @@ class Create extends React.Component {
         this.textareaHandleChange = this.textareaHandleChange.bind(this)
         this.eventCreatedSuccessfully = this.eventCreatedSuccessfully.bind(this)
     }
+    
     componentDidMount() {
         this.setState({
             textarea: {
