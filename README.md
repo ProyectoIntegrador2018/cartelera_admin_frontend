@@ -1,107 +1,109 @@
-# Cartelera i - Admin
+# Cartelera i - Admin Frontend
 
-This is the repository of "Cartelera de Innovación - Admin" for Tec de Monterrey,
-a project that will list upcoming events that happens in the TEC circle. This
-part of the project acts as an interface for admins, who are users that can create,
-edit, and/or delete events. Superadmin account exists as well for small number of users.
+Este es el repositorio de "Cartelera de Innovación - Public" para el Tec de Monterrey,
+un proyecto que listará eventos próximos a suceder dentro del Tec. Esta parte del 
+proyecto actuará como interfaz para administradores, sponsors y solicitantes, usuarios
+que pueden crear y editar eventos para el frontend público.
 
-## Table of contents
+## Tabla de Contenidos
 
-* [Client Details](#client-details)
-* [Environment URLS](#environment-urls)
-* [Team](#team)
-* [Management resources](#management-resources)
-* [Setup the project](#setup-the-project)
-* [Running the stack for development](#running-the-stack-for-development)
-* [Stop the project](#stop-the-project)
-* [Contributing](#contributing)
-
-
-### Client Details
-
-| Name               | Email                 | Role |
-| ------------------ | --------------------- | ---- |
-| Julio Noriega      | jnoriega@itesm.mx     |      |
-| A Diaz de Leon     | adiazdeleon@itesm.mx  |      |
+* [Detalles del Cliente](#detalles-del-cliente)
+* [URLs de Ambiente](#urls-de-ambiente)
+* [Equipo](#equipo)
+* [Recursos de Mantenimiento](#recursos-de-mantenimiento)
+* [Setup del Proyecto](#setup-del-proyecto)
+* [Correr el Proyecto para Desarrollo](#correr-el-proyecto-para-desarrollo)
+* [Detener el proyecto](#detener-el-proyecto)
+* [Contribuciones](#contribuciones)
 
 
-### Environment URLS
+### Detalles del Cliente
 
-* **Production** - [TBD](TBD)
-* **Development** - [TBD](TBD)
+| Nombre                       | Email                    | Rol                 |
+| ---------------------------- | ------------------------ | ------------------- |
+| Julio Noriega                | jnoriega@itesm.mx        | Cliente             |
+| A Diaz de Leon               | adiazdeleon@itesm.mx     | Asociado al Cliente |
+| Azael Jesus Cortes Capetillo | azael.capetillo@itesm.mx | Asociado al Cliente |
 
-### Team
 
-| Name                             | Email                   | Role                       |
+### URLs de Ambiente
+
+* **Producción** - [Sitio en producción](https://cartelerai-admin.herokuapp.com)
+* **Desarrollo** - Maquina Local
+
+### Equipo
+
+| Nombre                           | Email                   | Rol                        |
 | -------------------------------- | ----------------------- | -------------------------- |
-| Alvaro Ramírez Rosselló          | alvaro.rsl@outlook.com  | Backend/Frontend Developer |
-| Diego Adolfo José Villa          |                         | Frontend Developer         |
-| Julio Mauricio Noriega Reséndiz  |                         | Frontend Developer         |
-| Luis Carlos Flores Gallardo      | luiscfgmay294@gmail.com | Backend Developer/DevOps   |
-| Luis Uriel Ávila Vargas          |                         | Frontend Developer         |
+| Alvaro Ramírez Rosselló          | A00814982@itesm.mx      | Backend Developer          |
+| Diego Adolfo José Villa          | A00815260@itesm.mx      | Frontend Developer         |
+| Julio Mauricio Noriega Reséndiz  | A01273613@itesm.mx      | Frontend Developer         |
+| Luis Carlos Flores Gallardo      | A01196081@itesm.mx      | Backend Developer/DevOps   |
+| Luis Uriel Ávila Vargas          | A00815578@itesm.mx      | Frontend Developer         |
 
-### Management tools
+### Recursos de Mantenimiento
 
-You should ask for access to this tools if you don't have it already:
+Se debe preguntar por las credenciales necesarias en caso de no tenerlas:
 
 * [Github repo](https://github.com/ProyectoIntegrador2018/cartelera_admin_frontend)
-<!-- * [Backlog]() -->
-<!-- * [Heroku](https://cartelerai-api.herokuapp.com/) -->
-<!-- * [Documentation]() -->
+* [Backlog](https://github.com/ProyectoIntegrador2018/cartelera_backend/projects)
+* [Heroku](https://cartelerai-admin.herokuapp.com/)
+* [Documentación] **Revisar archivos proporcionados por el profesor**
 
-## Development
+## Desarrollo
 
-### Setup the project
+### Setup del Proyecto
 
-In order to run this client, you will need [npm](https://www.npmjs.com/).
+Para poder correr el cliente, es necesario tener [npm](https://www.npmjs.com/).
 
-After installing follow these simple steps to make the setup:
+Despues de instalar todo lo anterior, sigue estos pasos para hacer el setup del proyecto:
 
-1. Clone this repository into your local machine
+1. Clona este repositorio en la computadora en donde se va a desarrollar:
 
 ```bash
-$ git clone https://github.com/ProyectoIntegrador2018/cartelera_admin_frontend
+$ git clone https://github.com/ProyectoIntegrador2018/cartelera_admin_frontend.git
 ```
-2. Development was made using React, styling is done with sass. Keep all packages regularly updated:
+2. El desarrollo se hizo usando React, y el diseño del sitio con SASS.
+Manten todos los paquetes del proyecto actualizados con:
 
 ```bash
 $ npm update
 ```
 
-3. Install all the dependencies:
+3. Instala todas las dependencias con:
 
 ```bash
 $ npm install
 ```
 
-### Running the stack for Development
+### Correr el Proyecto para Desarrollo
 
-1. Fire up a terminal and run:
+1. Abre la terminal y corre el siguiente comando:
 
 ```bash
 $ npm start
 ```
 
-This command will start the server locally in your localhost in port 8080.
+Este comando iniciara el servidor localmente en tu localhost en el puerto 5000.
 
-Once you see an output like this:
+Si se despliega la siguiente información:
 
 ```
-Project is running at http://0.0.0.0:8080/
+Project is running at http://0.0.0.0:5000/
 webpack output is served from /
 Content not from webpack is served from ./src/public
 ```
 
-It means the project is up and running.
+Significa que el proyecto esta corriendo.
 
-### Stop the project
+### Detener el Proyecto
 
-In order to stop the running server just press the following command:
+Para detener el servidor simplemente oprime estas teclas:
 
 ```
 % CTRL+C
 ```
 
-## Contributing
+## Contribuciones
 
-Please contribute using [Github Flow](https://guides.github.com/introduction/flow/). Create a branch, add commits, and [open a pull request](https://github.com/ProyectoIntegrador2018/cartelera_admin_frontend).
+Porfavor contribuye con [Github Flow](https://guides.github.com/introduction/flow/). Crea una branch, agrega commits, y [abre un pull request](https://github.com/ProyectoIntegrador2018/cartelera_admin_frontend/pulls).
