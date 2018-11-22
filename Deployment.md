@@ -29,7 +29,7 @@ Ya dentro del directorio, se instalan todas las dependencias necesarias para el 
 $ npm install
 ```
 
-El proceso toma un tiempo, hay que ser pacientes.
+El proceso toma un tiempo para instalar las dependencias.
 
 
 ### Heroku CLI
@@ -65,6 +65,20 @@ $ docker login
 Y despues hacer login con Heroku con el siguiente comando:
 ```bash
 $ heroku container:login
+```
+Si se quiere correr el proyecto con Docker, usa los siguientes comandos:
+
+Es necesario correr el siguiente comando para abrir la consola dentro de la imagen en Docker.
+
+Despues de estar en la consola se deben instalar las dependencias nuevamente:
+```bash
+$ docker-compose run --rm web ash
+/usr/src/app # npm install
+/usr/src/app # exit
+```
+Al salir de la consola, se puede correr el proyecto:
+```bash
+$ docker-compose up
 ```
 
 ### Subir a Heroku
