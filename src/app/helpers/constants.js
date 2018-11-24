@@ -162,7 +162,7 @@ export const LoginFormValidations = Object.freeze({
     password: PasswordFormValidations.password
 })
 
-var imgUrlRegex = new RegExp(/.*(jpg|gif|png)/i)
+var imgUrlRegex = new RegExp(/.*(jpg|gif|png|jpeg)/i)
 
 export const EventFormValidations = Object.freeze({
     name: Yup.string().required("Nombre requerido"),
