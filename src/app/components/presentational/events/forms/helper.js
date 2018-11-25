@@ -28,7 +28,7 @@ export const eventInitialValues = {
     hasDeadline: false,
     requirementsToRegister: '',
     tagNames: [],
-    photo: 'http://gda.itesm.mx/zonaei/content/bqsbCK0XJW/logo-iag_LCB.png',
+    photo: 'https://s3.amazonaws.com/carteleraeventsimages/public/1543170662-logoIG.jpg',
     schedule: '',
     hasCapacity: false,
     maxCapacity: '0',
