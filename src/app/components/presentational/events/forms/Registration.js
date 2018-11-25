@@ -9,29 +9,43 @@ import {
 import { Entity } from 'Helpers/object'
 
 export const EventsFormsRegistration = (props) => (
-    <React.Fragment>
+    <div>
+        <div className="form-general-data">
+            <h3>Notas:</h3>
 
-        <div className='registration-toggler'>
-            <ToggleField label='hasRegistration' {...props} />
-
-            {props.values.hasRegistration &&
-                <TextFieldArea label='registrationMessage' {...props} />
-            }
-
-            {!props.values.hasRegistration &&
-                <TextField label='registrationUrl' {...props} />
-            }
+            <ul>
+                <li>Si utilizarás el sistema de registro de la plataforma activa la opción "Usar funcionalidad de registro de la página".</li>
+                <li>Si utilizarás el sistema de registro de la plataforma escribe un mensaje de confirmación de registro.</li>
+                <li>Si utilizarás el sistema de registro de la plataforma establece una fecha límite para el registro.</li>
+            </ul>
         </div>
 
-        <TextFieldArea label='requirementsToRegister' {...props} />
+        <br></br>
 
-        <ToggleField label='hasCapacity' {...props} />
+        <React.Fragment>
 
-        {props.values.hasCapacity && <NumberField label='maxCapacity' {...props} />}
+            <div className='registration-toggler'>
+                <ToggleField label='hasRegistration' {...props} />
 
-        <ToggleField label='hasDeadline' {...props} />
+                {props.values.hasRegistration &&
+                    <TextFieldArea label='registrationMessage' {...props} />
+                }
 
-        {props.values.hasDeadline && <FieldSingleDate label='registrationDeadline' {...props} />}
+                {!props.values.hasRegistration &&
+                    <TextField label='registrationUrl' {...props} />
+                }
+            </div>
 
-    </React.Fragment>
+            <TextFieldArea label='requirementsToRegister' {...props} />
+
+            <ToggleField label='hasCapacity' {...props} />
+
+            {props.values.hasCapacity && <NumberField label='maxCapacity' {...props} />}
+
+            <ToggleField label='hasDeadline' {...props} />
+
+            {props.values.hasDeadline && <FieldSingleDate label='registrationDeadline' {...props} />}
+
+        </React.Fragment>
+    </div>
 )
