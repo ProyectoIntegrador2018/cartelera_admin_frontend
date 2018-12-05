@@ -1,5 +1,7 @@
 # Cartelera i - Admin Frontend
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/c13dcd16aef89f074850/maintainability)](https://codeclimate.com/github/ProyectoIntegrador2018/cartelera_admin_frontend/maintainability)
+
 Este es el repositorio de "Cartelera de Innovación - Public" para el Tec de Monterrey,
 un proyecto que listará eventos próximos a suceder dentro del Tec. Esta parte del 
 proyecto actuará como interfaz para administradores, sponsors y solicitantes, usuarios
